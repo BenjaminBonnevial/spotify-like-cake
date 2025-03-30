@@ -39,19 +39,18 @@ $cakeDescription = 'Spoti-Like';
             <a href="<?= $this->Url->build('/') ?>"><span>Spoti-</span>Like</a>
         </div>
         <div class="top-nav-links">
-        <?= $this->Html->link('Stats', ['controller' => 'Home', 'action' => 'stats']) ?>
-        <?= $this->Html->link('Albums', ['controller' => 'Albums', 'action' => 'index']) ?>
         <?= $this->Html->link('Artists', ['controller' => 'Artists', 'action' => 'index']) ?>
+        <?= $this->Html->link('Albums', ['controller' => 'Albums', 'action' => 'index']) ?>
         <?= $this->Html->link('Tracks', ['controller' => 'Tracks', 'action' => 'index']) ?>
+        <?= $this->Html->link('Users', ['controller' => 'Users', 'action' => 'index']) ?>
         <?= $this->Html->link('Favorites', ['controller' => 'Favorites', 'action' => 'index']) ?>
         <?= $this->Html->link('Follows', ['controller' => 'Follows', 'action' => 'index']) ?>
-        <?= $this->Html->link('Users', ['controller' => 'Users', 'action' => 'index']) ?>
+        <?= $this->Html->link('Stats', ['controller' => 'Home', 'action' => 'stats']) ?>
         <?= $this->Html->link('Requests', ['controller' => 'Requests', 'action' => 'index']) ?>
             <?php if (empty($this->request->getAttribute('identity'))): ?>
                 <?= $this->Html->link('Créer un compte', ['controller' => 'Users', 'action' => 'add']) ?>
                 <?= $this->Html->link('Connexion', ['controller' => 'Users', 'action' => 'login']) ?>
             <?php else : ?>
-                <span class="top-nav-greeting"><?= 'Bonjour ' . h($this->request->getAttribute('identity')->name).',' ?></span>
                 <?= $this->Html->link('Déconnexion', ['controller' => 'Users', 'action' => 'logout']) ?>
             <?php endif; ?>
         </div>

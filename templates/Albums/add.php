@@ -16,16 +16,15 @@
             <?= $this->Form->control('year', [
     'type' => 'date', 
     'label' => 'Année',
-    'value' => $album->year ?: '2020-01-01' // Valeur par défaut
+    'value' => $album->year ?: '2020-01-01' 
 ]) ?>
 
             <?= $this->Form->control('image') ?>
             
-            <!-- Ajout du champ pour l'embed -->
             <?= $this->Form->control('embed', [
     'label' => 'Spotify Embed Code', 
     'placeholder' => 'Insérez le code d\'embed ici',
-    'value' => $album->embed ?: 'default_embed_code' // Si vide, utilise une valeur par défaut
+    'value' => $album->embed ?: 'default_embed_code' 
 ]) ?>
 
 

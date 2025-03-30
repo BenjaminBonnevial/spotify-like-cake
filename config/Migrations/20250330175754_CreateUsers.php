@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 use Migrations\BaseMigration;
 
-class CreateRequests extends BaseMigration
+class CreateUsers extends BaseMigration
 {
     /**
      * Change Method.
@@ -14,32 +14,33 @@ class CreateRequests extends BaseMigration
      */
     public function change(): void
     {
-        $table = $this->table('requests');
-        $table->addColumn('user_id', 'integer', [
+        $table = $this->table('users');
+        $table->addColumn('name', 'char', [
             'default' => null,
-            'limit' => 11,
+            'limit' => 50,
             'null' => false,
         ]);
-        $table->addColumn('type', 'string', [
+        $table->addColumn('email', 'char', [
             'default' => null,
-            'limit' => 10,
+            'limit' => 100,
             'null' => false,
         ]);
-        $table->addColumn('content', 'text', [
+        $table->addColumn('password', 'string', [
             'default' => null,
+            'limit' => 255,
             'null' => false,
         ]);
-        $table->addColumn('status', 'string', [
+        $table->addColumn('role', 'char', [
             'default' => null,
             'limit' => 10,
             'null' => false,
         ]);
         $table->addColumn('created', 'datetime', [
-            'default' => null,
+            'default' => 'CURRENT_TIMESTAMP',
             'null' => false,
         ]);
         $table->addColumn('modified', 'datetime', [
-            'default' => null,
+            'default' => 'CURRENT_TIMESTAMP',
             'null' => false,
         ]);
         $table->create();

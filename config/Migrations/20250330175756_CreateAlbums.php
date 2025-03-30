@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 use Migrations\BaseMigration;
 
-class CreateArtists extends BaseMigration
+class CreateAlbums extends BaseMigration
 {
     /**
      * Change Method.
@@ -14,13 +14,18 @@ class CreateArtists extends BaseMigration
      */
     public function change(): void
     {
-        $table = $this->table('artists');
-        $table->addColumn('name', 'string', [
+        $table = $this->table('albums');
+        $table->addColumn('title', 'string', [
             'default' => null,
             'limit' => 100,
             'null' => false,
         ]);
-        $table->addColumn('bio', 'text', [
+        $table->addColumn('artist_id', 'integer', [
+            'default' => null,
+            'limit' => 11,
+            'null' => false,
+        ]);
+        $table->addColumn('year', 'date', [
             'default' => null,
             'null' => false,
         ]);
@@ -29,12 +34,17 @@ class CreateArtists extends BaseMigration
             'limit' => 255,
             'null' => true,
         ]);
-        $table->addColumn('created', 'datetime', [
+        $table->addColumn('embed', 'string', [
             'default' => null,
+            'limit' => 255,
+            'null' => false,
+        ]);
+        $table->addColumn('created', 'datetime', [
+            'default' => 'CURRENT_TIMESTAMP',
             'null' => false,
         ]);
         $table->addColumn('modified', 'datetime', [
-            'default' => null,
+            'default' => 'CURRENT_TIMESTAMP',
             'null' => false,
         ]);
         $table->create();

@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 use Migrations\BaseMigration;
 
-class CreateTracks extends BaseMigration
+class CreateFavorites extends BaseMigration
 {
     /**
      * Change Method.
@@ -14,33 +14,28 @@ class CreateTracks extends BaseMigration
      */
     public function change(): void
     {
-        $table = $this->table('tracks');
-        $table->addColumn('title', 'string', [
+        $table = $this->table('favorites');
+        $table->addColumn('user_id', 'integer', [
             'default' => null,
-            'limit' => 100,
+            'limit' => 11,
             'null' => false,
         ]);
         $table->addColumn('album_id', 'integer', [
             'default' => null,
             'limit' => 11,
-            'null' => false,
-        ]);
-        $table->addColumn('duration', 'string', [
-            'default' => null,
-            'limit' => 255,
-            'null' => false,
+            'null' => true,
         ]);
         $table->addColumn('artist_id', 'integer', [
             'default' => null,
             'limit' => 11,
-            'null' => false,
+            'null' => true,
         ]);
         $table->addColumn('created', 'datetime', [
-            'default' => null,
+            'default' => 'CURRENT_TIMESTAMP',
             'null' => false,
         ]);
         $table->addColumn('modified', 'datetime', [
-            'default' => null,
+            'default' => 'CURRENT_TIMESTAMP',
             'null' => false,
         ]);
         $table->create();
